@@ -5,8 +5,8 @@ const Stock = (props) => {
   return (
     <div>
 
-      <h3>{props.data.name}</h3>
-      <p>{props.data.latestPrice}</p>
+      <h3>{props.data.symbol}</h3>  
+      <p>{props.data.latestPrice}</p> 
     </div>
   )
 }

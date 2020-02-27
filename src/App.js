@@ -7,10 +7,10 @@ import './App.css';
 
 function App() {
 
-let token = "";
+
 
 const [ticker, setTicker] = useState({});
-const [isLoading, setIsLoading] = useState(true);
+const [isLoading, setIsLoading] = useState(true); //
 const [isError, setIsError] = useState(false);
 const [inputTicker, setInputTicker] = useState("");
 const [searchTicker, setSearchTicker] = useState("");
@@ -19,9 +19,9 @@ const lookUpTicker = () => {
 const getData = async () => {
 setIsLoading(true);
 setIsError(false);
-
+//fetch(https://cloud.iexapis.com/stable/stock/${searchTicker}/quote?token=);
 try{
-  const response = await fetch(`https://cloud.iexapis.com/stable/stock/${ticker}/quote?token=${token}`)
+  const response = await fetch(`https://cloud.iexapis.com/stable/stock/${searchTicker}/quote?token=pk_34786c1bb8674585baa41c448ab8c973`)
   const data = await response.json();
   console.log(data)
   setTicker(data)
@@ -43,6 +43,9 @@ useEffect(() => lookUpTicker(), [searchTicker])
   return (
     <div className = "App">
       <header className = "App-header">
+
+      <h1>Stock Data</h1>
+        
         <input 
         type = "text"
         onChange={e => setInputTicker(e.target.value)}
@@ -53,8 +56,6 @@ useEffect(() => lookUpTicker(), [searchTicker])
       {/* if/else statement */}
       {isLoading ? <p>Loading...</p> : (!isError && <Stock data = {ticker}/>)}    
       </header>
-
-
     </div>
 
   );
