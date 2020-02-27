@@ -7,7 +7,7 @@ import './App.css';
 
 function App() {
 
-let token = "pk_34786c1bb8674585baa41c448ab8c973";
+let token = "";
 
 const [ticker, setTicker] = useState({});
 const [isLoading, setIsLoading] = useState(true);
